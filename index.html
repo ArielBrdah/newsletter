@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./assets/css/style.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="card">
+		<div class="col col-form">
+			<div class="text-container">
+				<h1>Stay updated!</h1>
+			</div>
+			<div class="text-container">
+				<p>Join 60,000+ product managers receiving monthly updates on:.</p>
+			</div>
+
+			<ul class="text-container">
+				<li><i class="check-li"></i>Product discovery and building what matters</li>
+				<li><i class="check-li"></i>Measuring to ensure updates are a success</li>
+				<li><i class="check-li"></i>And much more!</li>
+			</ul>
+
+			<form method="POST" action="/" class="text-container">
+				
+				<div class="label-container">
+					<label for="email"><strong><small>Email address</small></strong></label>
+					<label class="error"><strong><small>Valid email required</small></strong></label>
+				</div>
+
+				<div>
+					<input regex=".+@.+.com" id="email" type="email" name="email" placeholder="email@gmail.com" />
+				</div>
+
+				<div>
+					<button type="submit">Subscribe to monthly newsletter</button>
+				</div>
+			</form>
+
+		</div>
+		<div class="col col-ill">
+			<div class="illustration"></div>
+		</div>
+	</div>
+</body>
+</html>
