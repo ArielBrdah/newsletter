@@ -1,161 +1,154 @@
-@font-face
-	font-family: roboto
-	src: url(/assets/fonts/Roboto-Regular.ttf)
-
-@font-face
-	font-family: roboto-bold
-	src: url(/assets/fonts/Roboto-Bold.ttf)
-
-$bp: ( xs: 375px, sm: 475px, md: 768px, lg: 1024px, xl: 1440px )
-
-@each $k, $v in $bp
-	.container-#{$k}
-		width: $v
-
-*, *::after, *::before
-	margin: 0
-	padding: 0
-	box-sizing: border-box
-	-moz-box-sizing: border-box
-	-webkit-box-sizing: border-box
-
-body, input
-	font-size: 1.15rem
+@import "./_fonts"
+@import "./_reset"
+@import "./_variables"
+@import "./_globals"
 
 body
-	// margin: 0
-	height: 100svh
+	height: 100vh
 	width: 100%
-	background: #555
-	box-sizing: border-box
-	font-family: roboto
-	line-height: 1.5rem
+	background: hsl(234.78deg 17.56% 25.69%)
 	display: grid
 	place-items: center
-	grid-template-columns: 1fr
-	grid-template-rows: 1.5fr
+	line-height: 1.5
+	font-family: roboto
 
-h1
-	font-family: roboto-bold
-	line-height: 1.5rem
-	margin-bottom: 1.5rem
-	font-size: 4rem
-
-%flex-align-center
-	align-items: center
-
-ul li
-	list-style: none
-	line-height: 1.8rem
-	@extend %flex
-	@extend %flex-align-center
-
-input, button
-	width: 100%
-	padding: 1.5rem
-	@extend %rounded-input
-	margin-bottom: 1.5rem
+.hidden
+	visibility: hidden
 
 .card 
 	@extend %rounded
 	background: #fff
 	display: grid
-	grid-template-columns: 0.9fr .65fr
+	grid-template-columns: 1fr .9fr
+	aspect-ratio: 9/6
+	// width: 60%
 	padding: 1.5rem
-	padding-bottom: 3.5rem
 
-// .card
-	// width: 65.2777777778% 
-	// height: 58.3333333%
-	// max-width: 940px
-	// max-height: 630px
+	&__section
+		width: 100%
+		height: auto
 
+	&__section-illustration
+		background: url(/assets/images/illustration-sign-up-desktop.svg)
+		background-repeat: no-repeat
+		background-size: contain
+		background-position: center right
+		background-size: 100%
+		@extend %rounded-input
 
-// @media (min-width: 1440px)
-// 	.card
-		// width: 940px
-		// height: 630px
+	&__section-form
+		width: 90%
+		margin: 0 auto
+		padding: 0 3.5rem 0 1.2rem
+		padding-top: 4rem
 
-%rounded
-	border-radius: 35px
+	&__title
+		color: hsl(228.75deg 32% 19.61%)
+		font-family: roboto-bold
+		font-size: 3.7rem
+		font-weight: 900
+		margin-bottom: 1rem
 
-%rounded-input
-	border-radius: 12px
+	&__description, &__list, &__form, &__error, &__input, &__list-item
+		display: block
+		margin-bottom: 2rem
 
-%border
-	border: solid black 1px
+	&__list
+		margin-bottom: 3rem
 
-.col-ill
-	// @extend %border
+	&__list-item
+		display: flex
+		flex-direction: row
+		align-items: center
+		justify-content: start
+		margin-bottom: .8rem
 
-.col-form
-	padding: 4.125rem
-	padding-right: 4.125rem
-	padding-top: 6.125rem
-	padding-bottom: 0
-	// @extend %border
+	&__icon-check
+		background: url(/assets/images/icon-list.svg) no-repeat center
 
-%flex
-	display: flex
+	&__icon
+		background-size: 100%
+		height: 1.5rem 
+		width: 1.5rem
+		display: block
+		margin-right: 1rem
+		min-width: 18px
+		min-height: 18px
 
-%flex-row
-	flex-direction: row
-
-%flex-between
-	justify-content: space-between
-
-%flex-center
-	justify-content: center
-
-%border-orange
-	border-color: orange
-
-.label-container
-	@extend %flex
-	@extend %flex-row
-	@extend %flex-between
-	margin-bottom: .6rem
-
-input
-	border: grey 1px solid
+	&__label
+		display: inline-block
+		width: 49%
+		font-weight: 900
+		font-size: .8rem
+		margin-bottom: .2rem
+		font-family: roboto-bold
 	
-	&:invalid
-		@extend %border-orange
+	&__label:nth-child(1)
+		margin-right: auto
+		
+	&__label:nth-child(2)
+		text-align: end
 
-button
-	border: none
-	outline: none
-	background: #232742
-	color: white
-	font-weight: 600
-	font-family: roboto-bold
-	font-size: 1rem
+	&__label-error
+		color: var(--c-secondary)
 
-.text-container
-	margin-bottom: 1.7rem
+	&__input
+		border: solid 1px hsl(0deg 0% 84.31%)
+		margin-bottom: 1.5rem
+		&:focus
+			border: solid 1px #000
 
-.text-container h1
-	margin-bottom: 2.5rem
+	&__button, &__input
+		cursor: pointer
+		width: 100%
+		padding: 1.2rem 1rem
+		@extend %rounded-input
 
-.check-li
-	background: url(/assets/images/icon-list.svg) no-repeat center
-	background-size: 100%
-	height: 1rem 
-	width: 1rem
-	display: block
-	margin-right: 1rem
+	&__button
+		font-family: roboto-bold
+		font-weight: 700
+		color: #fff
+		background: hsl(232.26deg 30.69% 19.8%)
 
-.error
-	color: orange
+	&__button:hover
+		background: rgb(255,83,121)
+		background: linear-gradient(49deg, rgba(255,83,121,1) 0%, rgba(255,105,61,1) 100%)
 
-.col-ill
-	// width: fit-content
-	height: 100%
+@media ( max-width: 767.9px )
+	body
+		font-size: 1.4rem
+		width: 100vw
+		height: 97.5vh
+	
+	.card
+		width: 100%
+		height: 100vh
+		display: flex
+		flex-direction: column
+		border-radius: 0
+		aspect-ratio: 0
+		padding: 0
+	
+		&__section
+			padding: 0
+			margin: 0
+			width: 100%
+		
+		&__section-form
+			order: 2
+			padding: 1.5rem
+			width: 90%
+			margin: 0 auto
 
-.illustration
-	background: url(/assets/images/illustration-sign-up-desktop.svg)
-	height: 105%
-	width: 100%
-	display: block
-	background-repeat: no-repeat
-	background-size: contain
+		&__section-illustration
+			height: calc(100vh/3) //100%
+			background: url(../images/illustration-sign-up-mobile.svg)
+			background-size: cover
+			width: 100%
+			margin: 0
+			padding: 0
+			border-radius: 0
+			border: none
+			outline: none
+			background-repeat: no-repeat
+	
