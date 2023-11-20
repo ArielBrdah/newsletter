@@ -18,15 +18,27 @@ body
 .card 
 	@extend %rounded
 	background: #fff
-	display: grid
-	grid-template-columns: 1fr .9fr
-	aspect-ratio: 9/6
-	// width: 60%
-	padding: 1.5rem
 
+	&__newsletter
+		display: grid
+		grid-template-columns: 1fr .9fr
+		aspect-ratio: 9/6
+		// width: 60%
+		padding: 1.5rem
+	
+	&__thanks
+		display: block
+		aspect-ratio: 1/1
+		width: 400px
+		padding: 3rem 5rem
+
+	
 	&__section
 		width: 100%
 		height: auto
+
+	&__section-thanks
+
 
 	&__section-illustration
 		background: url(/assets/images/illustration-sign-up-desktop.svg)
@@ -48,6 +60,12 @@ body
 		font-size: 3.7rem
 		font-weight: 900
 		margin-bottom: 1rem
+
+	&__thanks &__title
+		line-height: 3.8rem
+		
+	&__thanks &__title, &__thanks &__description
+		margin-bottom: 2rem
 
 	&__description, &__list, &__form, &__error, &__input, &__list-item
 		display: block
@@ -74,6 +92,11 @@ body
 		margin-right: 1rem
 		min-width: 18px
 		min-height: 18px
+		
+		&-xl
+			width: 4rem
+			height: 4rem
+			margin-bottom: 2rem
 
 	&__label
 		display: inline-block
